@@ -72,6 +72,9 @@ export default function Reglas() {
         </ol>
 
         <div className="reglas__footer">
+          <Link to="/jugar" className="reglas__btn reglas__btn--primario">
+            Empezar a jugar
+          </Link>
           <Link to="/" className="reglas__btn">
             Volver al inicio
           </Link>

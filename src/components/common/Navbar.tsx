@@ -23,6 +23,14 @@ export default function Navbar() {
             Inicio
           </NavLink>
           <NavLink
+            to="/jugar"
+            className={({ isActive }) =>
+              isActive ? 'navbar__link navbar__link--active' : 'navbar__link'
+            }
+          >
+            Jugar
+          </NavLink>
+          <NavLink
             to="/reglas"
             className={({ isActive }) =>
               isActive ? 'navbar__link navbar__link--active' : 'navbar__link'

@@ -1,0 +1,88 @@
+.formulario-palabra {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.35rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.formulario-palabra__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.formulario-palabra__label {
+  font-weight: 700;
+  font-size: 0.98rem;
+}
+
+.formulario-palabra__ayuda {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+.formulario-palabra__controles {
+  display: flex;
+  gap: 0.65rem;
+}
+
+.formulario-palabra__input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  font-size: 1.05rem;
+  color: var(--color-text);
+  background-color: #ffffff;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.formulario-palabra__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-soft);
+}
+
+.formulario-palabra__input:disabled {
+  background-color: var(--color-surface-muted);
+  cursor: not-allowed;
+}
+
+.formulario-palabra__btn {
+  padding: 0.8rem 1.45rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-primary);
+  color: #ffffff;
+  font-size: 0.96rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.15s ease;
+}
+
+.formulario-palabra__btn:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+}
+
+.formulario-palabra__btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+@media (max-width: 520px) {
+  .formulario-palabra__controles {
+    flex-direction: column;
+  }
+
+  .formulario-palabra__btn {
+    width: 100%;
+  }
+}

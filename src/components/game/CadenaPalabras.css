@@ -1,0 +1,83 @@
+.cadena {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.35rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.cadena__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.cadena__titulo {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.cadena__contador {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.cadena__vacia {
+  margin: 0;
+  padding: 1.25rem;
+  text-align: center;
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--color-border);
+  color: var(--color-text-muted);
+  font-size: 0.93rem;
+}
+
+.cadena__lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cadena__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background-color: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.cadena__item--actual {
+  background-color: var(--color-primary-soft);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.cadena__puntos {
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 0.1rem 0.4rem;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: var(--color-text-muted);
+}
+
+.cadena__item--actual .cadena__puntos {
+  color: var(--color-primary);
+}
+
+.cadena__separador {
+  color: var(--color-text-muted);
+  font-weight: 700;
+  user-select: none;
+}

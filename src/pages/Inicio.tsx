@@ -31,6 +31,9 @@ export default function Inicio() {
         </div>
 
         <div className="inicio__acciones">
+          <Link to="/jugar" className="inicio__btn inicio__btn--primario">
+            Jugar ahora
+          </Link>
           <Link to="/reglas" className="inicio__btn inicio__btn--secundario">
             Ver reglas del juego
           </Link>
