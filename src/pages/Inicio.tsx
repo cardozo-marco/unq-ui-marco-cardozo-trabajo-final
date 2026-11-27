@@ -34,8 +34,11 @@ export default function Inicio() {
           <Link to="/jugar" className="inicio__btn inicio__btn--primario">
             Jugar ahora
           </Link>
+          <Link to="/ranking" className="inicio__btn inicio__btn--secundario">
+            Ver ranking
+          </Link>
           <Link to="/reglas" className="inicio__btn inicio__btn--secundario">
-            Ver reglas del juego
+            Reglas
           </Link>
         </div>
       </div>

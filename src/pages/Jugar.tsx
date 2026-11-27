@@ -14,12 +14,16 @@ import {
 } from '../utils/validators'
 import './Jugar.css'
 
+export interface JugarProps {
+  onPartidaFinalizada: (puntaje: number, cantidadPalabras: number) => void
+}
+
 const MENSAJE_INICIAL: MensajeJuego = {
   tipo: 'info',
   texto: 'Escribí la primera palabra válida para iniciar la partida y el temporizador de 15s.',
 }
 
-export default function Jugar() {
+export default function Jugar({ onPartidaFinalizada }: JugarProps) {
   const [palabras, setPalabras] = useState<string[]>([])
   const [estado, setEstado] = useState<EstadoPartida>('esperando')
   const [tiempoRestante, setTiempoRestante] = useState<number>(SEGUNDOS_POR_TURNO)
@@ -28,6 +32,7 @@ export default function Jugar() {
   const [claveFormulario, setClaveFormulario] = useState(0)
 
   const partidaFinalizadaRef = useRef(false)
+  const puntajeGuardadoRef = useRef(false)
   const partidaIdRef = useRef(0)
 
   const puntaje = calcularPuntajeCadena(palabras)
@@ -53,8 +58,13 @@ export default function Jugar() {
         tipo: 'error',
         texto: 'Se terminó el tiempo. La partida ha finalizado.',
       })
+
+      if (palabras.length > 0 && !puntajeGuardadoRef.current) {
+        puntajeGuardadoRef.current = true
+        onPartidaFinalizada(puntaje, palabras.length)
+      }
     }
-  }, [estado, tiempoRestante])
+  }, [estado, tiempoRestante, palabras.length, puntaje, onPartidaFinalizada])
 
   const handleEnviarPalabra = async (entrada: string): Promise<boolean> => {
     if (validando || estado === 'finalizada' || partidaFinalizadaRef.current) {
@@ -116,6 +126,7 @@ export default function Jugar() {
   const handleReiniciar = () => {
     partidaIdRef.current += 1
     partidaFinalizadaRef.current = false
+    puntajeGuardadoRef.current = false
     setPalabras([])
     setEstado('esperando')
     setTiempoRestante(SEGUNDOS_POR_TURNO)

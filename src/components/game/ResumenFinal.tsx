@@ -18,7 +18,7 @@ export default function ResumenFinal({
       <h2 className="resumen-final__titulo">¡Se terminó el tiempo!</h2>
       <p className="resumen-final__descripcion">
         {cantidadPalabras > 0
-          ? 'Buen intento. Este es el resultado final de tu cadena.'
+          ? 'Tu puntaje quedó guardado en el ranking local.'
           : 'No llegaste a encadenar palabras en esta partida.'}
       </p>
 
@@ -42,6 +42,10 @@ export default function ResumenFinal({
         >
           Jugar de nuevo
         </button>
+
+        <Link to="/ranking" className="resumen-final__btn resumen-final__btn--secundario">
+          Ver ranking
+        </Link>
 
         <Link to="/" className="resumen-final__btn resumen-final__btn--secundario">
           Volver al inicio

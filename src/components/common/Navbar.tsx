@@ -31,6 +31,14 @@ export default function Navbar() {
             Jugar
           </NavLink>
           <NavLink
+            to="/ranking"
+            className={({ isActive }) =>
+              isActive ? 'navbar__link navbar__link--active' : 'navbar__link'
+            }
+          >
+            Ranking
+          </NavLink>
+          <NavLink
             to="/reglas"
             className={({ isActive }) =>
               isActive ? 'navbar__link navbar__link--active' : 'navbar__link'
