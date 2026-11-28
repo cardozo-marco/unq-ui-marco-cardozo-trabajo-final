@@ -39,6 +39,13 @@ export default function Jugar({ onPartidaFinalizada }: JugarProps) {
   const letraRequerida = obtenerLetraInicialRequerida(palabras)
   const ultimaPalabra = palabras[palabras.length - 1] ?? ''
 
+  // Invalida cualquier consulta en curso si el usuario abandona la vista
+  useEffect(() => {
+    return () => {
+      partidaIdRef.current += 1
+    }
+  }, [])
+
   // El temporizador arranca con la primera palabra válida y se reinicia en cada acierto
   useEffect(() => {
     if (estado !== 'jugando') return
@@ -180,7 +187,6 @@ export default function Jugar({ onPartidaFinalizada }: JugarProps) {
             key={claveFormulario}
             letraRequerida={letraRequerida}
             validando={validando}
-            deshabilitado={estado !== 'esperando' && estado !== 'jugando'}
             onEnviarPalabra={handleEnviarPalabra}
           />
 

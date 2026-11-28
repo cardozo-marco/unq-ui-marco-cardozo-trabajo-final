@@ -4,30 +4,26 @@ import './FormularioPalabra.css'
 export interface FormularioPalabraProps {
   letraRequerida: string
   validando: boolean
-  deshabilitado?: boolean
   onEnviarPalabra: (palabra: string) => Promise<boolean>
 }
 
 export default function FormularioPalabra({
   letraRequerida,
   validando,
-  deshabilitado = false,
   onEnviarPalabra,
 }: FormularioPalabraProps) {
   const [entrada, setEntrada] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
 
-  const bloqueado = validando || deshabilitado
-
   useEffect(() => {
-    if (!bloqueado) {
+    if (!validando) {
       inputRef.current?.focus()
     }
-  }, [bloqueado])
+  }, [validando])
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if (bloqueado) return
+    if (validando) return
 
     const aceptada = await onEnviarPalabra(entrada)
     if (aceptada) {
@@ -67,13 +63,13 @@ export default function FormularioPalabra({
           autoComplete="off"
           autoCapitalize="none"
           spellCheck={false}
-          disabled={bloqueado}
+          disabled={validando}
         />
 
         <button
           type="submit"
           className="formulario-palabra__btn"
-          disabled={bloqueado || entrada.trim().length === 0}
+          disabled={validando || entrada.trim().length === 0}
         >
           {validando ? 'Validando...' : 'Enviar'}
         </button>

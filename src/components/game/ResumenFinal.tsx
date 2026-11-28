@@ -18,7 +18,7 @@ export default function ResumenFinal({
       <h2 className="resumen-final__titulo">¡Se terminó el tiempo!</h2>
       <p className="resumen-final__descripcion">
         {cantidadPalabras > 0
-          ? 'Tu puntaje quedó guardado en el ranking local.'
+          ? 'Podés consultar los mejores 10 puntajes en el ranking local.'
           : 'No llegaste a encadenar palabras en esta partida.'}
       </p>
 
