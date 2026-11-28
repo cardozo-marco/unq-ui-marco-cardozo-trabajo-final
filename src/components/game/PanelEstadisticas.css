@@ -8,7 +8,7 @@
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  padding: 1rem 1.1rem;
+  padding: 0.95rem 1.05rem;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
@@ -17,17 +17,17 @@
 
 .estadisticas__item--destacado {
   background-color: var(--color-primary-soft);
-  border-color: #bfdbfe;
+  border-color: var(--color-primary-border);
 }
 
 .estadisticas__item--alerta {
   background-color: var(--color-warning-soft);
-  border-color: #fde68a;
+  border-color: var(--color-warning-border);
 }
 
 .estadisticas__item--peligro {
   background-color: var(--color-danger-soft);
-  border-color: #fecaca;
+  border-color: var(--color-danger-border);
 }
 
 .estadisticas__tiempo-header {
@@ -44,15 +44,15 @@
 }
 
 .estadisticas__label {
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   color: var(--color-text-muted);
 }
 
 .estadisticas__valor {
-  font-size: 1.55rem;
+  font-size: 1.5rem;
   font-weight: 800;
   color: var(--color-text);
   line-height: 1.2;
@@ -71,17 +71,19 @@
 }
 
 .estadisticas__barra {
-  margin-top: 0.2rem;
+  margin-top: 0.25rem;
   width: 100%;
-  height: 5px;
-  border-radius: 999px;
-  background-color: rgba(27, 36, 50, 0.1);
+  height: 7px;
+  border-radius: 3px;
+  background-color: var(--color-track-bg);
+  border: 1px solid var(--color-border);
+  padding: 1px;
   overflow: hidden;
 }
 
 .estadisticas__barra-progreso {
   height: 100%;
-  border-radius: 999px;
+  border-radius: 2px;
   background-color: var(--color-primary);
   transition: width 0.3s linear, background-color 0.2s ease;
 }

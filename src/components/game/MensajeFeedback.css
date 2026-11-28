@@ -32,7 +32,7 @@
 
 .feedback--exito {
   background-color: var(--color-success-soft);
-  border-color: #bbf7d0;
+  border-color: var(--color-success-border);
   color: var(--color-success);
 }
 
@@ -42,7 +42,7 @@
 
 .feedback--error {
   background-color: var(--color-danger-soft);
-  border-color: #fecaca;
+  border-color: var(--color-danger-border);
   color: var(--color-danger);
 }
 

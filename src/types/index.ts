@@ -1,5 +1,7 @@
 // Tipos e interfaces de dominio para el juego Palabras Encadenadas
 
+export type Tema = 'light' | 'dark'
+
 export type EstadoPartida = 'esperando' | 'jugando' | 'finalizada'
 
 export type TipoMensaje = 'info' | 'exito' | 'error'

@@ -1,15 +1,17 @@
 .navbar {
-  background-color: var(--color-surface);
+  background-color: var(--color-navbar-bg);
   border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
   position: sticky;
   top: 0;
   z-index: 20;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .navbar__inner {
   max-width: 960px;
   margin: 0 auto;
-  padding: 0.85rem 1.25rem;
+  padding: 0.8rem 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -30,30 +32,39 @@
   justify-content: center;
   padding: 0.25rem 0.55rem;
   border-radius: var(--radius-sm);
-  background-color: var(--color-primary);
+  background: var(--color-primary-gradient);
   color: #ffffff;
   font-size: 0.78rem;
   font-weight: 800;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .navbar__title {
-  font-size: 1.05rem;
+  font-size: 1.04rem;
+  letter-spacing: 0.01em;
+}
+
+.navbar__acciones {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
 }
 
 .navbar__nav {
   display: flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.3rem;
 }
 
 .navbar__link {
   padding: 0.45rem 0.85rem;
   border-radius: var(--radius-sm);
-  font-size: 0.92rem;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 600;
   color: var(--color-text-muted);
-  transition: background-color 0.15s ease, color 0.15s ease;
+  border: 1px solid transparent;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
 .navbar__link:hover {
@@ -63,11 +74,31 @@
 
 .navbar__link--active {
   background-color: var(--color-primary-soft);
+  border-color: var(--color-primary-border);
   color: var(--color-primary);
-  font-weight: 600;
 }
 
-@media (max-width: 600px) {
+.navbar__tema-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface-muted);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.navbar__tema-btn:hover {
+  border-color: var(--color-primary-border);
+  color: var(--color-primary);
+}
+
+@media (max-width: 640px) {
   .navbar__inner {
     flex-direction: column;
     align-items: stretch;
@@ -77,6 +108,11 @@
 
   .navbar__brand {
     justify-content: center;
+  }
+
+  .navbar__acciones {
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   .navbar__nav {
